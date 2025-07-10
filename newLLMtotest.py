@@ -173,8 +173,7 @@ with st.container():
             gc.collect()
 
 # Show preview if available
-if st.session_state.preview_text:
-    st.text_area("📜 Extracted Text", st.session_state.preview_text, height=150)
+
 
 # Query input after upload
 if st.session_state.show_summary_input and st.session_state.faiss_index:
