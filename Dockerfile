@@ -1,35 +1,33 @@
-# Base image
+# Use a slim Python base image
 FROM python:3.10-slim
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/tessdata
-
-# Install system dependencies (for tesseract, pdfplumber, Pillow, etc.)
+# Install system dependencies (Tesseract, poppler for PDF, and required libs)
 RUN apt-get update && apt-get install -y \
     tesseract-ocr \
-    poppler-utils \
     libglib2.0-0 \
     libsm6 \
     libxext6 \
     libxrender-dev \
-    libmagic-dev \
-    build-essential \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
-# Create app directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy requirements and install Python packages
+# Copy requirements first to leverage Docker cache
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy your code into the container
+# Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
+
+# Copy rest of the app files
 COPY . .
 
-# Expose the Streamlit default port
+# Expose the Streamlit default port (optional)
 EXPOSE 8501
 
-# Start Streamlit app
-CMD ["streamlit", "run", "newLLMtotest.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Set environment variable for logs
+ENV PYTHONUNBUFFERED=1
+
+# Run the Streamlit app
+CMD ["streamlit", "run", "newLLMtotest.py", "--server.port=8501", "--server.enableCORS=false", "--server.address=0.0.0.0"]
