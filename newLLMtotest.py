@@ -21,6 +21,7 @@ st.set_page_config(page_title="TalkTonic", layout="centered")
 @st.cache_resource(show_spinner=False)
 def get_embed_model():
     return SentenceTransformer("paraphrase-MiniLM-L3-v2")
+embed_model = get_embed_model()
 
 def normalize_vector(vec):
     return vec / np.linalg.norm(vec)
