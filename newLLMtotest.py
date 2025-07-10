@@ -103,7 +103,7 @@ def get_theme_colors(theme):
     }
     return themes.get(theme, themes["Dark"])
 
-# ===== Session State =====
+
 for key, default in {
     "last_file_hash": None,
     "messages": [],
@@ -117,7 +117,7 @@ for key, default in {
     if key not in st.session_state:
         st.session_state[key] = default
 
-# ===== File Upload =====
+
 uploaded_file = st.file_uploader("Upload a PDF, Image, or Text File", type=["pdf", "png", "jpg", "jpeg", "txt", "docx"])
 if uploaded_file:
     file_hash = get_file_hash(uploaded_file)
@@ -145,7 +145,7 @@ if uploaded_file:
 
 st.markdown("<h2 style='text-align: left; margin-top: 0;'>   🤖 TalkTonic</h2>", unsafe_allow_html=True)
 
-# ===== Chat Page =====
+
 colors = get_theme_colors(st.session_state.theme)
 st.markdown(f"""
     <style>
@@ -170,10 +170,8 @@ with st.container():
             st.session_state.show_summary_input = True
             gc.collect()
 
-# Show preview if available
 
 
-# Query input after upload
 if st.session_state.show_summary_input and st.session_state.faiss_index:
     query = st.text_input("Ask something about this file:", placeholder="E.g. Summarize this document", key="summary_input")
     if st.button("Send Extracted Text to Bot"):
@@ -192,7 +190,7 @@ if st.session_state.show_summary_input and st.session_state.faiss_index:
         st.session_state.messages.append(("bot", reply))
         st.session_state.show_summary_input = False
 
-# Chat input
+
 user_input = st.chat_input("Type your message...")
 if user_input:
     st.session_state.pending_input = user_input.strip()
@@ -210,7 +208,7 @@ if st.session_state.pending_input:
     st.session_state.messages.append(("bot", reply))
     st.session_state.pending_input = ""
 
-# Chat Display
+
 chat_html = """<div id="chatbox" class="chat-container">"""
 for sender, msg in st.session_state.messages:
     chat_html += f'<div class="{sender}-message">{html.escape(msg)}</div>'
