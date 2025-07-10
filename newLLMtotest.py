@@ -1,6 +1,6 @@
 import os
 os.environ["STREAMLIT_WATCHER_TYPE"] = "none"
-
+import dotenv
 import faiss
 import html
 import streamlit as st
