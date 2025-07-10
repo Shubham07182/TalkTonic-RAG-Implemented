@@ -1,9 +1,9 @@
-fastapi
-uvicorn
+streamlit
+openai
 pytesseract
 pdfplumber
 Pillow
-python-docx
+numpy
 requests
-sentence-transformers
 faiss-cpu
+python-docx
