@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pytesseract
+pdfplumber
+Pillow
+python-docx
+requests
+sentence-transformers
+faiss-cpu
