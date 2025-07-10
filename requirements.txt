@@ -1,9 +1,9 @@
 streamlit
-openai
+faiss-cpu
 pytesseract
 pdfplumber
 Pillow
-numpy
-requests
-faiss-cpu
 python-docx
+requests
+sentence-transformers
+numpy
