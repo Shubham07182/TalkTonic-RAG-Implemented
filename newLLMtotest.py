@@ -22,9 +22,6 @@ st.set_page_config(page_title="TalkTonic", layout="centered")
 def get_embed_model():
     return SentenceTransformer("paraphrase-MiniLM-L3-v2")
 
-with st.spinner("🔄 Running TalkTonic..."):
-    embed_model = get_embed_model()
-
 def normalize_vector(vec):
     return vec / np.linalg.norm(vec)
 
@@ -165,8 +162,8 @@ st.markdown(f"""
 
 with st.container():
     col1, col2, col3 = st.columns([4, 4, 5])
-    with col3:
-        if st.button("🗑️ Clear", use_container_width=True):
+    with col1:
+        if st.button("🗑️ Clear Chat", use_container_width=True):
             for key in ["faiss_index", "chunk_map", "messages", "pending_input", "last_file_hash", "preview_text"]:
                 st.session_state[key] = None if key != "messages" else []
             st.session_state.show_summary_input = True
