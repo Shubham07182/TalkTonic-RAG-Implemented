@@ -10,7 +10,7 @@ It allows users to upload documents (PDFs, images, DOCX, TXT), extracts their co
 - 📄 Supports **PDF, Image (OCR), DOCX, and TXT**
 - 🧠 Uses paraphase miniLM for semantic understanding
 - 📚 Document chunking for context-aware retrieval
-- 🔍 **Chroma Vector Store** for efficient similarity search
+- 🔍 FAISS for efficient similarity search
 - 💬 Chat-style Q&A interface with **Groq API (LLaMA 3)** as the LLM
 - 🧾 Summary / query input post-upload + persistent chat history
 - 🖼️ Smart OCR fallback for scanned documents using `Tesseract`
@@ -25,7 +25,7 @@ It allows users to upload documents (PDFs, images, DOCX, TXT), extracts their co
 |------------------|-------------------------------|
 | Frontend UI      | Streamlit                     |
 | Embedding Model  | paraphaseMiniLM               |
-| Vector Store     | Chroma (via LangChain)        |
+| Vector Store     | FAISS                         |
 | OCR Engine       | Tesseract OCR (`pytesseract`) |
 | PDF Parsing      | `pdfplumber`                  |
 | DOCX Handling    | `python-docx`                 |
