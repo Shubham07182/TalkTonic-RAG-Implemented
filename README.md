@@ -1,4 +1,4 @@
-# TalkTonic-RAG-Implemente
+# TalkTonic-RAG-Implemented
 
 TalkTonic is an intelligent file-aware chatbot built with Retrieval-Augmented Generation (RAG).  
 It allows users to upload documents (PDFs, images, DOCX, TXT), extracts their content using OCR & parsing, chunks the text, creates vector embeddings, and enables conversational Q&A over the content.
