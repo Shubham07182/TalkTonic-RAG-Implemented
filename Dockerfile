@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /newLLMtotest
 
 # Copy requirements first to leverage Docker cache
 COPY requirements.txt .
