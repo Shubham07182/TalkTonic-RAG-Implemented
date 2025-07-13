@@ -30,4 +30,4 @@ EXPOSE 8501
 ENV PYTHONUNBUFFERED=1
 
 # Run the Streamlit app
-CMD ["streamlit", "run", "newLLMtotest.py", "--server.port=8501", "--server.enableCORS=false", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "newLLMtotest.py", "--server.port=8501" , "--server.enableCORS=false", "--server.address=0.0.0.0"]
