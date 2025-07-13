@@ -14,7 +14,6 @@ It allows users to upload documents (PDFs, images, DOCX, TXT), extracts their co
 - 💬 Chat-style Q&A interface with **Groq API (LLaMA 3)** as the LLM
 - 🧾 Summary / query input post-upload + persistent chat history
 - 🖼️ Smart OCR fallback for scanned documents using `Tesseract`
-- 🧑‍🎨 Switchable themes & chat UI enhancements (Dark, Midnight, Light)
 - ☁️ Deployed on **Render Free Tier**
 
 ---
